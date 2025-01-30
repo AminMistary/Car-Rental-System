@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Rental Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" id="themeStylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Car Rental</h1>
+            </div>
+            <nav class="menu">
+                <a href="dashboard.html" class="menu-item"><i class="fas fa-home"></i> Home</a>
+                <a href="#" class="menu-item" id="vehiclesButton"><i class="fas fa-car"></i> Vehicles</a>
+                <a href="#" class="menu-item" id="profileButton"><i class="fas fa-user"></i> Profile</a>
+                <a href="#" class="menu-item" id="settingsButton"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+            <div class="logout">
+                <a href="first_page.html" class="menu-item" id="logoutButton"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h2>Dashboard</h2>
+                <div class="user-info">
+                    <img src="img/profile.jpg" alt="User" class="user-img" id="headerProfilePic">
+                    <span class="user-name">Amin Mistary</span>
+                </div>
+            </header>
+            <section class="vehicles">
+                <h3>Available Vehicles</h3>
+                <div class="vehicle" onclick="showDetails('BMW X5')">
+                    <img src="img/bmw.jpg" alt="BMW X5">
+                    <span>BMW X5</span>
+                </div>
+                <div class="vehicle" onclick="showDetails('Audi Q7')">
+                    <img src="img/audi1.jpg" alt="Audi Q7">
+                    <span>Audi Q7</span>
+                </div>
+                <!-- Add more vehicles as needed -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for vehicle options -->
+    <div id="vehicleOptionsModal" class="modal">
+        <span class="close-btn" id="closeVehicleOptionsModal">&times;</span>
+        <div class="modal-content">
+            <h3>Select a Vehicle Type</h3>
+            <div class="vehicle" onclick="window.location.href='vehicle_details.html?type=bike'">
+                <img src="img/bike.jpg" alt="Bike">
+                <span>Bike</span>
+            </div>
+            <div class="vehicle" onclick="window.location.href='vehicle_details.html?type=bicycle'">
+                <img src="img/bicycle.jpg" alt="Bicycle">
+                <span>Bicycle</span>
+            </div>
+            <div class="vehicle" onclick="window.location.href='vehicle_details.html?type=car'">
+                <img src="img/car.jpg" alt="Car">
+                <span>Car</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for profile -->
+    <div id="profileModal" class="modal">
+        <span class="close-btn" id="closeProfileModal">&times;</span>
+        <div class="modal-content">
+            <h3>Profile</h3>
+            <form id="profileForm">
+                <div class="input-box">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" value="Amin Mistary">
+                </div>
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="amin@example.com">
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" value="password123">
+                </div>
+                <div class="input-box">
+                    <label for="profilePic">Profile Picture</label>
+                    <input type="file" id="profilePic">
+                </div>
+                <div class="input-box">
+                    <label for="history">History</label>
+                    <textarea id="history" rows="4">Rental history goes here...</textarea>
+                </div>
+                <div class="button input-box">
+                    <input type="submit" value="Save Changes">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for settings -->
+    <div id="settingsModal" class="modal">
+        <span class="close-btn" id="closeSettingsModal">&times;</span>
+        <div class="modal-content">
+            <h3>Settings</h3>
+            <div class="input-box">
+                <label for="themeToggle">Theme</label>
+                <select id="themeToggle">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <!-- Add more settings as needed -->
+        </div>
+    </div>
+
+    <!-- Modal for profile picture -->
+    <div id="profilePicModal" class="modal">
+        <span class="close-btn" id="closeProfilePicModal">&times;</span>
+        <img class="modal-content" id="profilePicInModal">
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
